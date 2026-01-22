@@ -1,102 +1,38 @@
-# Digital Technique 3 – Lab 1: Project Setup & System Understanding
+# Digital Techniques 3 – Lab 1 (Project Creation)
 
-## Overview
-This repository contains **Lab 1** of the *Digital Technique 3 (DT3)* course.  
-The purpose of this lab was to set up the project environment, understand the overall audioport system architecture, define design parameters, and verify the Transaction-Level Model (TLM) behavior before starting RTL implementation.
+## Course
+Digital Techniques 3  
+University of Oulu
 
-Lab 1 focuses on **preparation, configuration, and understanding**, not on RTL logic or verification.
+## Lab Overview
+This repository contains my work for **Lab 1 – Project Creation**, focusing on the initial setup of the *audioport* system and understanding memory-mapped I/O using the APB bus.
 
----
+The lab introduces the overall project architecture and serves as the foundation for subsequent verification and RTL design tasks.
 
-## Objectives
-The main objectives of Lab 1 were:
+## Learning Objectives
+- Understand memory-mapped I/O in a SW/HW interface
+- Learn APB bus address mapping
+- Analyze system-level behavior using a Transaction-Level Model (TLM)
+- Understand hierarchical SystemVerilog module integration
 
-- Set up the DT3 project environment on Linux
-- Understand the audioport system architecture
-- Define and verify design parameters consistently across RTL and TLM
-- Run and analyze TLM simulations
-- Create the top-level RTL module hierarchy
-- Verify module connectivity and elaboration
+## Implemented Work
+- Defined APB address map for control and FIFO registers
+- Configured design parameters based on student-specific randomizers
+- Verified playback start/stop behavior using TLM simulation
+- Analyzed interrupt behavior and FIFO refill mechanism
+- Verified module connectivity using JasperGold connectivity checks
 
----
-
-## Tasks Completed
-
-### 1. Project and Environment Setup
-- Configured the DT3 project workspace
-- Reviewed provided documentation and specifications
-- Studied APB and audioport architecture basics
-
----
-
-### 2. Design Parameter Definition
-- Defined personal design parameters in:
-  - `audioport_pkg.sv` (SystemVerilog)
-  - `audioport_defs.h` (SystemC)
-- Ensured consistency between RTL and TLM parameter values
-- Verified parameters using simulator outputs
-
----
-
-### 3. APB Bus Configuration
-- Defined audioport start and end addresses
-- Configured APB input delay and address mapping
-- Documented APB-related parameters in the project report
-
----
-
-### 4. TLM Simulation and Waveform Analysis
-- Executed SystemC TLM simulations
-- Analyzed waveforms and compared them with reference timing diagrams
-- Observed command behavior, play/stop transitions, and IRQ signaling
-- Captured waveform screenshots for documentation
-
----
-
-### 5. RTL Module Hierarchy Creation
-- Reviewed module interfaces for:
-  - `control_unit`
-  - `cdc_unit`
-  - `dsp_unit`
-  - `i2s_unit`
-- Instantiated all submodules in the top-level `audioport` module
-- Declared and connected internal signals according to the block diagram
-
----
-
-### 6. Elaboration and Connectivity Verification
-- Successfully compiled and elaborated the RTL design
-- Resolved unconnected ports and signal width mismatches
-- Verified connectivity using:
-  - Simulator schematic inspection
-  - Connectivity check tools
-
----
-
-## Key Learning Outcomes
-Through this lab, I learned:
-
-- How a larger hardware project is structured
-- The importance of consistent parameter definitions across models
-- How to interpret TLM simulations to understand expected RTL behavior
-- How to read block diagrams and module specifications
-- How to verify RTL connectivity before functional implementation
-
----
+## Simulation & Verification
+- TLM simulations confirm correct command handling (`CMD_START`, `CMD_STOP`)
+- FIFO data flow and interrupt behavior match reference model
+- All connectivity checks passed with no detected wiring issues
 
 ## Notes
-- No functional RTL logic or verification code was implemented in this lab
-- All work focused on setup, configuration, and understanding
-- This lab provides the foundation for later RTL and verification tasks
+Only files **modified by me** are included in this repository.  
+Course-provided templates, reference models, and full lab environments are intentionally excluded.
+
+## Disclaimer
+This repository is shared for **portfolio and learning demonstration purposes only**.  
+Please do not copy this work for academic submissions.
 
 ---
-
-## Next Steps
-- Lab 2 focuses on RTL verification of the `control_unit`
-- Writing directed tests, assertions, and waveform-based debugging
-
----
-
-## Author
-**Arafat Miah**  
-Digital Technique 3 – University of Oulu
